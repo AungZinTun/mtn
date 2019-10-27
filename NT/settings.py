@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4*kq$&d!0+bw==8pzex5sig-t58k#p8fz+(ay(7k@lq8u^2-2_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -86,13 +86,26 @@ WSGI_APPLICATION = 'NT.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
-DATABASES = {
+if DEBUG==True:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        "HOST": 'ec2-54-83-201-84.compute-1.amazonaws.com',
+        'NAME': 'd4v3tvtceh410i',
+        'USER': 'vzzisrsvygjhaw',
+        'PORT': 5432,
+        'PASSWORD': '23dfa97380c79cc941c3a57e54e8cf0111a1e205912aeecd589a9672900dc46f',
+
     }
 }
+
 
 
 # Password validation
