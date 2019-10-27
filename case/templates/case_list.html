@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div id="app">
+    <div class="container">
+            <hr>
+        <div class="row">
+              <div class="col">
+                    <a class="btn btn-success mb-1 " href="{% url 'new' %}"> + Add New Case</a>
+              </div>
+        </div>
+     
+        <div class="row"> 
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Sex</th>
+                        <th scope="col">Address</th>
+                    </tr>
+                </thead>
+          
+            <tbody>
+            {% if object_list %}
+                {% for c in object_list %}
+                <tr >
+                    
+                    <td> <a href="{% url 'case_detail' c.id %}">{{c.name }}</a> </td>
+                    <td> {{c.age }} </td>
+                    <td> {{c.sex }} </td>
+                    <td> {{c.Address }} </td>
+                </tr>
+                {% endfor %}
+
+            {% else %}
+            <tr> No Case Reported </tr>
+            {% endif %}
+            </tbody>
+          
+            </table>
+        </div>
+    </div>
+    
+
+
+</div>
+
+{% endblock %}
+
+    {% block script %}
+  
+
+{% endblock %}
