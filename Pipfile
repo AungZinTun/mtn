@@ -9,7 +9,7 @@ verify_ssl = true
 djangorestframework = "==3.10.3"
 django-allauth = "==0.40.0"
 django-crispy-forms = "==1.8.0"
-django-registration = "==3.0.1"
+django-registration = "==3.1.2"
 django-rest-auth = "==0.9.5"
 certifi = "==2019.9.11"
 chardet = "==3.0.4"
